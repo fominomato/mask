@@ -1,0 +1,33 @@
+<!-- BreadCrumb -->
+<?php $this->Breadcrumb("component", "pesquisa & manutenção");?>
+
+<!-- Renderizar parcialmente (nesta página) o Submenu -->
+<?php echo $this->partial('/component/menu.phtml');?>
+	
+	<div class="grid-panel" style="width:595px; float:left; margin-left:5px;">
+
+		<div class="grid-body">
+			<div class="grid-body-text">
+				<br style="clear:both;" />
+				<?php if($this->message){?>
+					<?php echo $this->message;?>
+				<?php }?>
+
+			<br style="clear:both;" />
+			<div id="dvFormComponent">
+				<!-- Renderizar parcialmente (nesta página) o formulário -->
+				<?php echo $this->partial('/component/search_form.phtml', array("title" => $this->title ));?>
+			</div>
+			<br style="clear:both;" />
+			<?php if($this->list && count($this->list) > 0){?>
+				<div id="listComp">
+					<?php echo $this->partial('/component/list.phtml', array("list" => $this->list ));?>
+				</div>
+			<?php }else{?>
+				<center>
+				<pre>Não encontramos dados para a pesquisa.</pre>	
+				</center>		
+			<?php }?>
+		</div>
+	</div>
+</div>

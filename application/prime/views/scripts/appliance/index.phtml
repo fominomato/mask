@@ -1,0 +1,37 @@
+<!-- BreadCrumb -->
+<?php $this->Breadcrumb("aplicacao", $this->client_name);?>
+
+<fieldset>
+	<legend>Manutenção de Aplicação</legend>
+
+	<?php if($this->msg){?>
+			<?php echo $this->msg;?>
+	<?php }?>
+
+	<br style="clear:both;" />
+		
+	<div id="add" class="linkIO" onClick="linkIO('add', 'pesqApp', 'dvFormApplication');">
+		Abrir/Fechar Formulário de cadastro
+	</div>
+	<br style="clear:both;" />
+
+	<div id="dvFormApplication" style="width: 590px;">
+		<div id="out" class="linkIO" onClick="linkIO('dvFormApplication', 'add', 'pesqApp');">
+			Abrir/Fechar Formulário de cadastro
+		</div>		
+		<br style="clear:both;" />
+		<?php echo $this->partial('/appliance/form.phtml', array("check" => $this->check, "data" => $this->data, "product" => $this->product));?>
+	</div>
+
+	<br style="clear:both;" />
+	<div id="pesqApp">
+		<?php echo $this->partial('/appliance/search.phtml', array("nobread"=>1));?>
+			
+		<div id="listApp">
+			<?php if(count($this->application) > 0 && $this->application){?>
+				<?php echo $this->partial('/appliance/list.phtml', array('application' => $this->application));?>
+			<?php } ?>
+		</div>
+	</div>
+</fieldset>
+

@@ -1,0 +1,21 @@
+<form action="<?php echo $this->baseUrl('/admin/flow/assoc');?>" method="post" name="frmAssocFlowProd">
+
+	<div style="float: left; margin-bottom: 5px; margin-left: 5px;">
+		<label for="product_id" style="width: 245px !important;">Selecione um produto </label> 
+		<br style="clear:both;" />
+		<?php echo $this->Prod();?>
+	</div>
+	
+	<div class='marginLeft' style="float:right !important;">
+		<label for='command_flow_id' style="width: 245px !important;">Escolha um fluxo </label>
+		<br style="clear:both;" />
+		<?php echo $this->Flow();?>
+	</div>
+	<br style="clear:both;" />
+	<br style="clear:both;" />
+	
+	<div id="rowButton">
+		<input type="reset" value="Reset!" class="btAzul">
+		<input type="submit" name="btAddAssocFlow" class="btAzul" value="Enviar dados">
+	</div>
+</form>

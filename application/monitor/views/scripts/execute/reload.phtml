@@ -1,0 +1,18 @@
+<?php 
+	$data	= $this->Monitor(array("server"=> $this->server_id, "port"=> "33000"));
+	foreach($data as $itens){
+?>
+	<table>
+	<?php foreach($itens as $colunas){ ?>
+		<tr>
+			<?php foreach($colunas as $registro){ ?>
+				<td<? echo ($registro > 0)?"":" style='font-weight:bold;'";?> ><?=$registro;?></td>
+			<?php }?>
+		</tr>
+	<?php }?>
+	</table>
+	<br />
+	<br />
+<?php }?>
+
+<?php	$urlLog = $this->Logexec($data, "", "", $this->client->client_name, ""); //armazenar log de execução ?>	

@@ -1,0 +1,16 @@
+<form name="frmServer" method="post" id=frmServer action="#" onSubmit="return addForm('server', 'frmServer');">
+
+	<label for="hostname">Digite um host name</label>
+	<input type="text" name="hostname" id="hostname" value="<?php echo $_POST['hostname']?>">
+	<br />
+	<br style="clear:both;"/>
+	
+	<label for='address'>Digite o IP e a porta</label>
+	<input type="text" name="address" id="address" size="10" maxlength="20" value="<?php echo $_POST['address']?>">
+
+	<input type="text" name="port" id="port" size="5" maxlength="5" value="<?php echo $_POST['port']?>">
+	<br style="clear:both;" />
+	<br />
+	
+	<input type="submit" name="bt_SaveServer" id="bt_SaveServer" value="Enviar Dados" style="float:right;">
+</form>

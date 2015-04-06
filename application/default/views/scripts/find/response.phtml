@@ -1,0 +1,55 @@
+<?php $stbordertop = " style='border-top: 1px solid #BCD2EE;' ";?>
+<?php 
+if(count($this->data) < 1){?>
+	Nenhum resultado encontrado!
+<?php 
+	exit();
+}
+?>
+<div id="popunder" class="info" style='position:absolute; display:none;'></div>
+<table id="listagem" style="border:1px solid #9BAFF1;">
+	<thead>
+		<tr <?=$stbordertop?>>
+			<th></th>
+			<th>Aplicação</th>
+			<th>Componente</th>
+			<th>Produto</th>
+			<th>Servidor</th>
+			<th>Ambiente</th>
+			<th></th>
+	</thead>
+	<tbody>
+	<?php $a = 0;?>
+		<?php foreach($this->data as $data):?>
+			<?php $ctl	= $data->application_id + $data->component_id + $data->ambient_id;?>
+			<?php $subs = $this->Listresponse(array("component_component_id"=>$data->component_id, "ambient_id"=>$data->ambient_id, "application_id" => $data->application_id));?>
+			<?php if($data->component_component_id == 0 && $a > 0){?>
+				<tr><td colspan="7" style="height: 1px;"></td></tr>
+			<?php }?>		
+			<tr>
+				<th>
+					<?php if($subs){?>
+						<a id="ln<?=$ctl;?>" class="abre" onClick="$('#tb<?=$ctl;?>').show(); $('#ln<?=$ctl;?>').hide(); $('#fc<?=$ctl;?>').show();">&nbsp;</a>
+						<a id="fc<?=$ctl;?>" class="fecha" style="display:none;" onClick="$('#tb<?=$ctl;?>').hide(); $('#ln<?=$ctl;?>').show(); $('#fc<?=$ctl;?>').hide();">&nbsp;</a>
+					<?php }?>
+				</th>
+				<td><?php echo strtoupper($data->application);?></td>
+				<td><?php echo strtoupper($data->component);?></td>
+				<td><?php echo $data->product;?></td>
+				<td><?php echo $data->hostname;?></td>
+				<td><?php echo $data->ambient;?></td>
+				<td>
+					<input class="btAzul" type="button" name="bt_Detalhe" onClick="acessExec(<?php echo $data->application_id.','.$data->component_id.','.$data->ambient_id;?>);" value="Acessar">
+				</td>
+			</tr>
+				<tr>
+					<td colspan="7" style="height: 0px; border: 0px;">
+						<?php if(is_object($subs)){?>
+							<?php echo $this->partial("/find/sub.phtml", array("subs"=> $subs, "a"=> $ctl));?>
+						<?php } ?>
+					</td>
+				</tr>
+			<?php $a++;?>
+		<?php endforeach;?>
+	</tbody>
+</table>

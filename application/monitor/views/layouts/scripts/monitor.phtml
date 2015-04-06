@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>Huge Baby Monitoração</title>
+	
+		<?php $this->headScript()->prependFile('/js/date_pt_br.js'); ?> 
+		<?php $this->headScript()->prependFile('/js/gerais.js'); ?> 
+		<?php $this->headScript()->prependFile('/js/default.js'); ?> 
+		<?php $this->headScript()->prependFile('/js/component.js'); ?>
+		<?php $this->headScript()->prependFile('/js/jquery-framedialog.js'); ?> 
+		<?php $this->headScript()->prependFile('/js/jquery-ui.min.js'); ?> 
+		<?php $this->headScript()->prependFile('/js/jquery.checkboxtree.js'); ?> 
+		<?php $this->headScript()->prependFile('/js/jquery.js'); ?> 
+
+		<?php $this->headLink()->appendStylesheet('/css/jquery.checkboxtree.css') ?>
+		<?php $this->headLink()->appendStylesheet('/css/breadcrumb.css') ?>
+		<?php $this->headLink()->appendStylesheet('/css/listagem.css') ?>
+		<?php $this->headLink()->appendStylesheet('/css/menu_style.css') ?>
+		<?php $this->headLink()->appendStylesheet('/css/forms.css') ?>
+		<?php $this->headLink()->appendStylesheet('/css/modal.css') ?>
+		<?php $this->headLink()->appendStylesheet('/css/gerais.css') ?>
+		<?php $this->headLink()->appendStylesheet('/css/jquery-ui.css') ?>		
+		
+		<?php echo $this->headScript(); ?>   
+		<?php echo $this->headLink(); ?>
+		
+	</head>
+	<body>
+		<div id="wrapper">
+		
+			<div id="header">
+				<a href="<?php echo $this->baseUrl('/')?>" title="inicio">
+					<img border=0 src="/image/logo.png" width="100px" height="100px" alt="Sistema Automatizador" title="Sistema Automatizador" />
+				</a>
+			</div>
+
+<?php 		
+	if (Zend_Auth::getInstance()->hasIdentity()){ 
+		echo $this->render("menu.phtml");
+		echo $this->render("client.phtml");
+	}
+?>
+
+			<div id="content" style="padding-left: 6px; width: 585px;">
+				<?php echo $this->layout()->content?>
+			</div>
+			
+		</div>
+		
+	</body>
+</html>

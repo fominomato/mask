@@ -1,0 +1,37 @@
+<a href="/auth/login"><< voltar para login</a>
+
+<fieldset>
+	<legend>Registro para novos usuários</legend>  
+	
+	<?php if($this->msg){ ?>
+		<?php echo $this->msg; ?>
+	<?php }?>
+	
+	<form action="<?php echo $this->baseUrl("/auth/register");?>" method="post" name="frmRegister">
+	
+		<div class="lblRegister">Nome</div>
+		<input class="inptRegister" type="text" name="name" id="name" size="36" maxlength="100" value="<?php echo $this->user->getName();?>">
+		<br style="clear:both;" />
+		
+		<div class="lblRegister">Login</div>
+		<input class="inptRegister" type="text" name="login" id="login"  size="36" maxlength="255" value="<?php echo $this->user->getLogin();?>">
+		<br style="clear:both;" />
+		
+		<div class="lblRegister">Clientes</div>
+		<?php echo $this->Client();?>
+		<br style="clear:both;" />
+		
+		<div class="lblRegister">Senha</div>
+		<input class="inptRegister" type="password" name="pass" id="pass" size="36" maxlength="8" >
+		<br style="clear:both;" />
+	
+		<div class="lblRegister">Confirme a senha</div>
+		<input class="inptRegister" type="password" name="confirmpass" id="confirmpass"  size="36" maxlength="8" >
+		
+		<br style="clear:both;" />
+		<br style="clear:both;" />
+		
+		<input class="btAzul" style="float:right;" type="submit" id="btRgUser" name="btRgUser" value="Clique para registrar" >
+	
+	</form>
+</fieldset>	

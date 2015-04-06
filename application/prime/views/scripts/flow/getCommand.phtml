@@ -1,0 +1,9 @@
+<label for="command_id" style="float:left;">Commando: </label>
+
+<?php foreach($this->command as $command):?>
+<input type="hidden" name="command_id" id="command_id" class="listCommands" value="<?php echo $command->getId();?>">
+<textarea cols="10" rows="4" class="listCommands">
+<?php echo $command->getName();?>
+</textarea>
+<?php endforeach;?>
+<?php if(!$this->command){?> Nenhum comando cadastrado<?php }?>

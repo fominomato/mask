@@ -1,0 +1,20 @@
+<a href="/auth/login"> << voltar para login</a>
+
+<br style="clear:both;" />
+
+<fieldset>
+	<legend>Relembrar Senha</legend>
+	
+	<?php if($this->msg){ ?>
+		<?php echo $this->msg; ?>
+	<?php }?>
+		
+	<br style="clear:both;" />
+	<br style="clear:both;" />
+
+	<form action="<?php echo $this->baseUrl("/default/auth/remember");?>" method="post">
+		<div class="lblRegister">Digite seu login</div>
+		<input class="inptRegister" style="padding: 3px;" type="text" name="login" id="login" value="" size="30">
+		<input class="btAzul" style="height: 25px;" type="submit" name="btRmb" value="Enviar dados">
+	</form>
+</fieldset>

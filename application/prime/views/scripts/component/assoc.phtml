@@ -1,0 +1,20 @@
+<!-- BreadCrumb -->
+<?php $this->Breadcrumb("component", "associação");?>
+
+<!-- Renderizar parcialmente (nesta página) o Submenu -->
+<?php echo $this->partial('/component/menu.phtml');?>
+	
+<h3>Associação de Componentes</h3>
+
+<?php if($this->message){?>
+	<?php echo $this->message;?>
+<?php }?>
+
+<?php if($this->component || $this->prod){?>	
+<div id="dvFormComponent">
+	<!-- Renderizar parcialmente (nesta página) o formulário -->
+	<?php echo $this->partial('/component/form_assoc.phtml', array("component" => $this->component, "prod" => $this->prod));?>
+</div>
+<?php }else{?>
+	<div class='error'>Ops.: Não consegui recuperar o componente cadastrado.</div>
+<?php }?>

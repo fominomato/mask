@@ -1,0 +1,22 @@
+<table id="listagem">
+	<thead>
+		<tr>
+			<th>Fluxo</th>
+			<th>Comando</th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>	
+<?php foreach($this->flow as $iten):?>
+		<tr>
+			<td><?php echo $iten->getFlowCommand()->getName();?></td>
+			<td><?php echo $iten->getCommand()->getName();?></td>
+			<td>
+				<a href="#" title="Remover" name="btRmvFlow" onClick="RmvFlow(<?php echo $iten->getCommand()->getId();?>)">
+					Remover
+				</a>
+			</td>
+		</tr>
+<?php endforeach;?>
+	</tbody>
+</table>

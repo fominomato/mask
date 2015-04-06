@@ -1,0 +1,13 @@
+<!-- BreadCrumb -->
+<?php $this->breadcrumb("product");?>
+
+<fieldset>
+	<legend>Cadastro de Produto</legend>
+	
+	<?php echo $this->message;?>
+
+	<div id="form">
+		<?php echo $this->partial('/product/form.phtml', array('check' => $this->check));?>
+	</div>
+	
+</fieldset>

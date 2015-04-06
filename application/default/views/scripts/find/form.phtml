@@ -1,0 +1,24 @@
+<form name="frm_findExec" id="frm_findExec" action="#" method="post" onSubmit="return searchExec();">
+	<input type="hidden" id="client_id" name="client_id" value="<?=$this->client_id;?>">
+	
+	<div id='dvApplication' class='lblLeft'>
+		<?php echo $this->Application(array("client_id"=>$this->client_id));?>
+	</div>
+	
+	<div id="ambient" class="lblLeft" style="width: 250px;">
+		<?php echo $this->Ambient();?>
+	</div>
+		
+	<br style="clear:both;" />
+
+	<fieldset>
+		<legend>Selecione Produto e componente</legend>
+		<div id="treeComponent" class="lblLeft">
+			<?php echo $this->check; ?>
+		</div>
+	</fieldset>
+
+	<br style="clear:both;" />
+	<input type="submit" class="btAzul" name="bt_SearchExec" id="bt_SearchExec" value="Enviar Dados">
+	
+</form>

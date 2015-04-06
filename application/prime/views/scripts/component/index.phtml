@@ -1,0 +1,16 @@
+<!-- BreadCrumb -->
+<?php $this->Breadcrumb("component", "index");?>
+
+<!-- Renderizar parcialmente (nesta página) o Submenu -->
+<?php echo $this->partial('/component/menu.phtml');?>
+	
+<?php if($this->message){?>
+		<?php echo $this->message;?>
+<?php }?>
+
+<br style="clear:both;" />
+
+<div id="dvFormComponent">
+	<!-- Renderizar parcialmente (nesta página) o formulário -->
+	<?php echo $this->partial('/component/form.phtml', array("comp" => $this->comp, "prod" => $this->prod));?>
+</div>

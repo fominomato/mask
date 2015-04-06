@@ -1,0 +1,29 @@
+<ul class="menu orange">
+	<li class="link" id="index">
+		<a href='/admin/client'>Cliente</a> 
+	</li>
+	<li class="link" id="index">
+		<a href='/admin/product'>Produto</a> 
+	</li>
+	<li class="link" id="index">
+		<a href='/admin/flow'>Fluxo</a> 
+	</li>
+	<li class="link" id="index">
+		<a href='/admin/user'>Adm. Usuário</a> 
+	</li>
+	<li class="link" id="logout" style="float:right;">
+		<a href='/auth/logout'>Logout</a> 
+	</li>
+<?php if(Zend_Auth::getInstance()->getIdentity()->getRoleId() != 3){?>
+	<li class="link" id="index" style="float:right;">
+		<select name="redirect" id="redirect" onchange="redirecionar(this);">
+			<option value="">Mudança de nível</option>
+			<option value="/default/index">Operacional</option>
+			<option value="/prime/index">Prime</option>
+<?php if(Zend_Auth::getInstance()->getIdentity()->getRoleId() == 1){?>			
+			<option value="/admin/index">Admin</option>
+<?php }?>			
+		</select>
+	</li>
+<?php }?>	
+</ul>

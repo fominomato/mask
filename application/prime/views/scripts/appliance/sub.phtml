@@ -1,0 +1,25 @@
+<table id="tb<?=$this->a?>" class="listagem" style="display:none; border: 1px solid #BCD2EE;">
+	<thead>
+		<tr>
+			<th></th>
+			<th>Aplicação</th>
+			<th>Produto</th>
+			<th>Componente</th>
+			<th>Servidor</th>
+		</tr>
+	</thead>
+	<tbody>					
+<?php 
+	foreach($this->subs as $sub)
+	{
+?>
+		<tr>
+			<th></th>
+			<td><?php echo $sub->getApplication()->getName();?></td>
+			<td><?php echo $sub->getComponent()->getProduct()->getName();?></td>
+			<td><?php echo $sub->getComponent()->getName();?></td>
+			<td><?php echo $sub->getComponent()->getServer()->getHostname();?></td>
+		</tr>
+<?php }?>
+	</tbody>
+</table>

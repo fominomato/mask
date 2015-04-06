@@ -1,0 +1,24 @@
+<!-- BreadCrumb -->
+<?php $this->Breadcrumb("fluxo", $this->client_name);?>
+
+<fieldset>
+	<legend>Cadastro de Comando</legend>
+
+	<?php if($this->msg){?>
+		<div id="dvAlert">
+			<?php echo $this->msg;?>
+		</div>
+	<?php }?>
+
+	<div id="dvFormFlow">
+		<!-- Renderizar parcialmente (nesta página) o formulário -->
+		<?php echo $this->partial('/flow/form.phtml', array("data" => $this->select, "process_id"=>$this->process_id));?>
+	</div>
+</fieldset>
+
+<br style="clear:both;"/>
+<?php 
+if(count($this->flow) > 0 && $this->flow){?>
+	<?php echo $this->partial('/flow/list.phtml', array('flow' => $this->flow));?>
+<?php } ?>
+

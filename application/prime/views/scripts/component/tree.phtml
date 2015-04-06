@@ -1,0 +1,26 @@
+<html>
+	<head>
+		<?php $this->headScript()->prependFile('/js/component.js'); ?> 
+		<?php $this->headScript()->prependFile('/js/jquery-ui.min.js'); ?> 
+		<?php $this->headScript()->prependFile('/js/jquery.checkboxtree.js'); ?> 
+		<?php $this->headScript()->prependFile('/js/jquery.js'); ?> 
+
+		<?php $this->headLink()->appendStylesheet('/css/forms.css') ?>
+		<?php $this->headLink()->appendStylesheet('/css/jquery.checkboxtree.css') ?>
+		<?php $this->headLink()->appendStylesheet('/css/gerais.css') ?>
+		<?php $this->headLink()->appendStylesheet('/css/jquery-ui.css') ?>		
+		
+		<?php echo $this->headScript(); ?>   
+		<?php echo $this->headLink(); ?>
+
+	</head>
+	<body>
+		
+		<fieldset>
+			<legend>Hierarquia de Componente</legend>
+			<br style="clear:both;" />
+			
+			<?php echo $this->comp;	?>
+		</fieldset>
+	</body>
+</html>

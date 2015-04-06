@@ -1,0 +1,13 @@
+<fieldset>
+	<legend>Historico de ações</legend>
+	
+		<?php echo $this->partial("/historic/form.phtml");?>
+	
+</fieldset>
+<div id="listHist">	
+	<?php if(is_object($this->data) || is_array($this->data)){?>
+		<?php echo $this->partial("/historic/list.phtml", array("data"=>$this->data));?>
+	<?php }else{?>
+		<pre>Não existe histórico disponível.</pre>
+	<?php }?>
+</div>

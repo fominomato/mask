@@ -1,0 +1,14 @@
+<form name="frm_SaveClient" method="post" id="frm_SaveClient" action="<?php echo $this->baseUrl("admin/client/save")?>">
+	<input type="hidden" name="client_id" id="client_id" value="<?php echo $this->data->getId();?>">
+
+	<label class="clilbl" for="name">Digite um nome</label>
+	<input type="text" name="name" id="name" value="<?php echo $this->data->getName();?>">
+	<br style="clear:both;" />
+
+	<label class="clilbl" for="site">Digite um site (ou uma observação)</label>
+	<input type="text" name="site" id="site" value="<?php echo $this->data->getSite();?>">
+	
+	<br style="clear:both;" />
+	
+	<input type="submit" name="bt_SaveClient" id="bt_SaveClient" value="Enviar Dados">
+</form>

@@ -1,0 +1,18 @@
+<h3>Atividades</h3>
+
+<?php
+    unset($active, $active2);
+    if(strstr($_SERVER['REQUEST_URI'], 'search'))
+        $activate2 = "class='active'";
+    else
+        $activate = "class='active'";
+?>
+
+<ul class="tabs listinline">
+	<li <?=$activate?>>
+		<a href="/prime/component/" name="registerComp">Cadastro de componentes</a>
+	</li>
+	<li <?=$activate2?>>
+		<a href="/prime/component/search" name="manutComp">Manutenção de componentes</a>
+	</li>
+</ul>

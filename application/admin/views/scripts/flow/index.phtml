@@ -1,0 +1,18 @@
+<!-- BreadCrumb -->
+<?php $this->breadcrumb("flow");?>
+
+
+<fieldset>
+	<legend>Cadastro de Fluxo ao produto</legend>
+	
+	<?php echo $this->message;?>
+
+	<div id="form">
+		<?php echo $this->partial('/flow/form.phtml');?>
+	</div>
+	
+</fieldset>
+
+<div id="listFlows">
+	<?php echo $this->partial('/flow/list.phtml');?>
+</div>

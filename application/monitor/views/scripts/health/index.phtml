@@ -1,0 +1,25 @@
+<h3>Health por servidores e instâncias</h3>
+
+<fieldset>
+	<legend>Servidor</legend>
+	<table>
+		<tbody>
+		<?php $a = 1;?>
+		<?php foreach($this->servers as $server){?>	
+			<tr>
+				<td style="width: 400px;"><?=strtoupper($server->getHostName());?>
+				
+					<a id="ln<?=$a?>" class="abre" onClick="abreHealth(<?=$a;?>, <?=$server->getId();?>);">&nbsp;</a>
+					<a id="fc<?=$a?>" class="fecha" style="display:none;" onClick="$('#tb<?=$a;?>').hide(); $('#ln<?=$a;?>').show(); ; $('#fc<?=$a;?>').hide();">&nbsp;</a>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<div id="tb<?=$a;?>" style="display: none;"></div>
+				</td>
+			</tr>
+			<?php $a++;?>
+		<?php }?>
+		</tbody>
+	</table>
+</fieldset>

@@ -1,0 +1,17 @@
+<?php
+    $user                = Zend_Auth::getInstance()->getIdentity()->getId();
+    $profile            = Zend_Auth::getInstance()->getIdentity()->getRoleId();        
+    $clients            = Zend_Auth::getInstance()->getIdentity()->getClients($profile, $user);
+?>
+        
+<ul class="header-menu">
+<?php foreach($clients as $client){?>
+    <li class="header-menu-bt">
+        <form action="/prime/index" name="frmClients" id="frmClients" method="post" style="margin-bottom: -2px;">
+            <input type="hidden" name="client_id" id="client_id<?php echo $client->getId();?>" value="<?php echo $client->getId();?>">
+            <input type="hidden" name="name" id="name<?php echo $client->getId();?>" value="<?php echo $client->getName();?>">
+            <input type="submit" class="btMenuHeader" id="btSubmit<?php echo $client->getId();?>" name="btSubmit" value="<?=$client->getName();?>">
+        </form>
+    </li>    
+<?php }?>
+</ul>

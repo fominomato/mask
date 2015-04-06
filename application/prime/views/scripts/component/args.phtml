@@ -1,0 +1,66 @@
+
+<?php if(!$this->render){?>
+	<!-- BreadCrumb -->
+	<?php $this->Breadcrumb("component", "cadastro argumento");?>
+	
+	<!-- Renderizar parcialmente (nesta página) o Submenu -->
+	<?php echo $this->partial('/component/menu.phtml');?>
+<?php }elseif($this->render == 2){?>
+	<html>
+		<head>
+			<?php $this->headScript()->prependFile('/js/component.js'); ?> 
+			<?php $this->headScript()->prependFile('/js/jquery-ui.min.js'); ?> 
+			<?php $this->headScript()->prependFile('/js/jquery.checkboxtree.js'); ?> 
+			<?php $this->headScript()->prependFile('/js/jquery.js'); ?> 
+	
+			<?php $this->headLink()->appendStylesheet('/css/forms.css') ?>
+			<?php $this->headLink()->appendStylesheet('/css/jquery.checkboxtree.css') ?>
+			<?php $this->headLink()->appendStylesheet('/css/gerais.css') ?>
+			<?php $this->headLink()->appendStylesheet('/css/jquery-ui.css') ?>		
+			
+			<?php echo $this->headScript(); ?>   
+			<?php echo $this->headLink(); ?>
+	
+		</head>
+		<body>
+<?php }?>
+
+	<h3>Cadastro de argumentos para comandos</h3>	
+
+	<?php if($this->message){?>
+			<?php echo $this->message;?>
+	<?php }?>
+
+<?php if($this->command){?>	
+<div id="dvFormComponent">
+	<!-- Renderizar parcialmente (nesta página) o formulário -->
+	<?php foreach($this->command as $command){?>
+		<?php if(strstr($command->getCommand()->getName(), "[#instancia]")){?>
+			<div id="<?=$command->getCommand()->getId();?>" class="width100percent">
+				<div class="box width90percent">
+				    <div class="box-title textleft"><?php echo $command->getFlowCommand()->getName()?></div>
+                    <div id="boxcontent" class="border-box pad5">				
+					    <form action='#update_Component' name='frmArgs' id='frmArgs<?=$command->getCommand()->getId()?>' method='post' onSubmit="return validArgs(<?=$command->getCommand()->getId()?>);">
+						    <input type="hidden" value="<?=$this->comp;?>" name="component_id" id="component_id<?=$command->getCommand()->getId()?>">
+							<div class="fontBold middle"><?php echo $this->Argscmd($command->getCommand()->getName(), $command->getCommand()->getId(), $this->comp);?></div>
+						    <div class="middle textright pad5"><input class="btSubRegister" type="submit" value="Add args" name="btArgs"></div>
+					    </form>
+				    </div>
+                </div>
+				<br style="clear:both;" />
+			</div>
+		<?php }//fim if se id do comando presente?>
+	<?php }?>
+</div>
+<?php }else{?>
+	<div class='error'>Não existe argumentos para este cadastro.</div>
+<?php }?>
+<?php if(!$this->render){?>
+	<form action="<?php echo $this->baseUrl('/prime/component/search');?>" method="post">
+		<input type="submit" class="btSubRegister floatright" name="btFrmRefresh" value="Ir para Pesquisa">
+	</form>
+<?php }?>			
+<?php if($this->render == 2){?>
+	</body>
+</html>
+<?php }?>

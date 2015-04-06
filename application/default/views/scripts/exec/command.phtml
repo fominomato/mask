@@ -1,0 +1,46 @@
+<?php 
+	ob_start();	
+	ob_flush();
+?>
+<html>
+	<head>
+		<?php $this->headScript()->prependFile('/js/jquery-ui.min.js'); ?> 
+		<?php $this->headScript()->prependFile('/js/jquery.checkboxtree.js'); ?> 
+		<?php $this->headScript()->prependFile('/js/jquery.js'); ?> 
+
+		<?php $this->headLink()->appendStylesheet('/css/forms.css') ?>
+		<?php $this->headLink()->appendStylesheet('/css/gerais.css') ?>
+		<?php $this->headLink()->appendStylesheet('/css/jquery-ui.css') ?>		
+		
+		<?php echo $this->headScript(); ?>   
+		<?php echo $this->headLink(); ?>
+		<script>
+			$(document).ready(function() {	
+				$("#cmd").focus();	
+			});
+		</script>
+		<style type="text/css">
+		.loading-image { 
+			background: transparent url('/image/progress-indicator-alpha.gif') no-repeat center center; 
+		}
+		</style>
+	</head>
+<body>
+	<div class="consoleCmd" id="cmd">
+		<?php
+		$log 	= ""; 
+		$log	= $this->ExecCmd($this->comp->getServer()->getAddress(), $this->comp->getServer()->getPort(), $this->command->getCommand()->getName(), $this->command->getCommand()->getId(), $this->comp->getId());
+
+		ob_get_flush();	
+		flush(); 
+		
+		$urlLog = $this->Logexec($log, $this->comp->getId(), $this->command->getCommand()->getId(), $this->comp->getClient()->getName(), $this->command->getFlow()->getName()); //armazenar log de execução
+		if(!$urlLog)
+			echo "Erro: não foi possível criar arquivo de log.";
+		unset($urlLog, $log);		
+		?>
+	</div>
+	
+	</body>
+</html>
+<?php ob_end_flush();?>

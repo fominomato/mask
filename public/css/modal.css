@@ -1,0 +1,44 @@
+#mask {
+  position:absolute;
+  left:0;
+  top:0;
+  z-index:9000;
+  background-color:#000;
+  display:none;
+}
+  
+#boxes .window {
+	position:absolute;
+	float:left;
+  	left:0;
+  	top:0;
+  	width:440px;
+  	height:200px;
+  	display:none;
+  	z-index:9999;
+  	padding:15px;
+}
+
+#boxes #dialog {
+  	width:400px; 
+  	height:375px;
+  	padding-left: 15px;
+  	padding-top: 30px;
+  	background-color:#ffffff;
+    background:url(/image/notice.png) no-repeat 0 0 transparent; 
+}
+
+.close{
+ 	position:relative;
+	text-align:right;
+	float:right;
+}
+
+#modalContent{
+	position:absolute;
+	float:left;
+	margin:0 0 0 5px;
+	padding:0px;
+	width:400px;
+	z-index:-1;	
+}

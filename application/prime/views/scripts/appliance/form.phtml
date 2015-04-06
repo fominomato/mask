@@ -1,0 +1,60 @@
+<?php 
+$appcom = $this->data;
+
+if($appcom->getApplication() != null)
+	$application	= $appcom->getApplication()->getId()
+?>
+
+<div id="boxes">
+	
+	<div id="dialog" class="window">
+		<!-- Botão para fechar a janela tem class="close" -->
+		<a href="#" class="close">Fechar [X]</a>
+		<!-- Area para conteudo dinamico da div modal -->
+		<div id='modalContent'></div>
+	</div>
+
+	<!-- Não remova o div#mask, pois ele é necessário para preencher toda a janela -->
+	<div id="mask"></div>
+</div>
+
+<form name="frm_SaveApplication" method="post" id="frm_Application" action="<?php echo $this->baseUrl("prime/appliance/save")?>" >
+	
+	<input type="hidden" name="component_id" id="component_id" value="<?php echo ($appcom->getComponent())?$appcom->getComponent()->getId():"";?>">
+	<input type="hidden" name="application_id" id="application_id" value="<?php echo ($appcom->getApplication())?$appcom->getApplication()->getId():"";?>">
+	<input type="hidden" name="ambient_id" id="ambient_id" value="<?php echo ($appcom->getAmbient())?$appcom->getAmbient()->getId():"";?>">
+	<input type="hidden" name="client_id" id="client_id" value="<?php echo $this->client_id;?>">
+
+	<fieldset style="float:left; height: 120px; width: 270px !important; margin: 5px;">
+		<legend>Escolher um aplicação</legend>
+		<div id="application" class="iptApplication">
+			<div id="onApp">
+				<?php echo $this->Application($this->client_id, $application);?>
+				<br style="clear:both;">
+				<a href="#" name="btAppOn">Clique aqui</a> para criar nova aplicação.
+			</div>	
+			
+			<div id="offApp">
+				<a href="#" name="btAppOff" style="float:right;">Mudar e escolher uma aplicação</a>
+				<br style="clear:both;">
+				<label for="name">Digite um título</label>
+				<input type="text" name="name" id="name" value="">
+			</div>
+		</div>
+	</fieldset>
+		
+	<fieldset  style="float:left; height: 120px; width: 270px !important; margin: 5px;">
+		<legend>Escolher um componente</legend>	
+		<?php echo $this->Component();?>
+	</fieldset>
+	<br style="clear:both;" />
+		
+	<fieldset style="height: 120px; margin: 5px; width: 560px !important;">
+		<legend>Escolher um Ambiente</legend>
+			<?php echo $this->Ambient($appcom->getAmbient());?>
+			<br style="clear:both" />
+	</fieldset>
+
+	<br style="clear:both;"/>
+	<input type="submit" class="btAzul" name="bt_SaveApplication" id="bt_SaveApplication" value="Enviar Dados">
+</form>

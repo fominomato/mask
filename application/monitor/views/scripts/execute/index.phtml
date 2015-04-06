@@ -1,0 +1,27 @@
+<html>
+	<head>
+		<?php $this->headScript()->prependFile('/js/jquery-ui.min.js'); ?> 
+		<?php $this->headScript()->prependFile('/js/jquery.checkboxtree.js'); ?> 
+		<?php $this->headScript()->prependFile('/js/jquery.js'); ?> 
+
+		<?php $this->headLink()->appendStylesheet('/css/forms.css') ?>
+		<?php $this->headLink()->appendStylesheet('/css/gerais.css') ?>
+		<?php $this->headLink()->appendStylesheet('/css/jquery-ui.css') ?>		
+		
+		<?php echo $this->headScript(); ?>   
+		<?php echo $this->headLink(); ?>
+		<script>
+			var refreshId = setInterval(function()
+			{
+			     $('#commands').fadeOut("slow").load('/monitor/execute/reload?server_id=<?=$this->server_id;?>').fadeIn("fast");
+			}, 90000);
+		</script>
+	</head>
+	<body>
+	
+		<div id="commands">
+			<?php echo $this->partial('/execute/reload.phtml', array('server_id'=>$this->server_id));?>
+		</div>
+
+	</body>
+</html>

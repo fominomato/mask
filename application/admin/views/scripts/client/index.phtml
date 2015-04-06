@@ -1,0 +1,21 @@
+<!-- BreadCrumb -->
+<?php $this->breadcrumb("client");?>
+
+<fieldset>
+	<legend>Cadastrar Cliente</legend>
+	
+	<?php if($this->msg){?>
+		<div id="dvAlert">
+			<?php echo $this->msg;?>
+		</div>
+	<?php }?>
+	
+	<div id="dvFormClient">
+	<!-- Renderizar parcialmente (nesta p�gina) o formul�rio -->
+	<?php echo $this->partial('/client/form.phtml', array('data' => $this->select));?>
+	</div>
+</fieldset>
+
+<?php if(count($this->client) > 0){?>
+	<?php echo $this->partial('/client/list.phtml', array('client' => $this->client));?>
+<?php } ?>

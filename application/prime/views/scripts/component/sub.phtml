@@ -1,0 +1,47 @@
+<table id="tb<?=$this->a?>" class="listagem" style="display:none; border: 1px solid #AABCFE;">
+	<thead>
+		<tr>
+			<th colspan="2"></th>
+			<th>Componente</th>
+			<th>Produto</th>
+			<th>Argumentos</th>
+			<th>Hierarquia</th>
+		</tr>
+	</thead>
+	<tbody>
+<?php foreach($this->subs as $sub) { ?>
+	<?php $link = "<a href='#assoc' onClick='assocProd({$sub->getId()})'>Associar Produto</a>";?>
+	<?php $subs = $this->Listcomp(array("component_component_id" => $sub->getId()));?>
+		<tr>
+			<td colspan="2">
+			<?php if($subs){?>
+				<a id="ln<?=$sub->getId()?>" class="abre" onClick="$('#tb<?=$sub->getId();?>').show(); $('#ln<?=$sub->getId();?>').hide(); $('#fc<?=$sub->getId();?>').show();">&nbsp;</a>
+				<a id="fc<?=$sub->getId()?>" class="fecha" style="display:none;" onClick="$('#tb<?=$sub->getId();?>').hide(); $('#ln<?=$sub->getId();?>').show(); $('#fc<?=$sub->getId();?>').hide();">&nbsp;</a>
+			<?php }?>
+			</td>	
+			<td><?php echo $sub->getName();?></td>
+			<!-- 
+				<td><?php echo $sub->getServer()->getHostname();?></td>
+			 -->
+			<td><?php echo ($sub->getProduct()->getName())?$sub->getProduct()->getName():$link;?></td>
+			<td>
+			<?php if($sub->getProduct()->getId() > 0 && $this->ListCommands($sub->getProduct()->getId())){?>
+				<a href="#args" onClick="acessArgs(<?php echo $sub->getId().",".$sub->getProduct()->getId();?>)">
+					Alterar
+				</a>
+			<?php }else{?>
+				--
+			<?php }?>
+			</td>
+			<td><a href="#dialog" name="hierarquia" id="<?php echo $sub->getId();?>">Hierarquia</a></td>
+		</tr>
+		<?php if($subs){ ?>
+			<tr>
+				<th colspan="6">	
+					<?php echo $this->partial("/component/sub.phtml", array("subs"=>$subs, "a"=>$sub->getId())); ?>
+				</th>
+			</tr>
+		<?php } ?>
+<?php }?>
+	</tbody>
+</table>

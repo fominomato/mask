@@ -1,0 +1,26 @@
+<ul class="menu orange">
+	<li class="link" id="index">
+		<a href='/monitor/index' >Monitoração</a> 
+	</li>
+
+	<li class="link" id="index">
+		<a href='/monitor/health'>Health's</a> 
+	</li>
+
+	<li class="link" id="index" style="float:right;">
+		<a href='default/auth/logout' >Logout</a> 
+	</li>
+	
+<?php if(Zend_Auth::getInstance()->getIdentity()->getRoleId() != 3){?>
+	<li class="link" id="index" style="float:right;">
+		<select name="redirect" id="redirect" onchange="redirecionar(this);">
+			<option value="">Mudança de nível</option>
+			<option value="/default/index">Operacional</option>
+			<option value="/prime/index">Prime</option>
+<?php if(Zend_Auth::getInstance()->getIdentity()->getRoleId() == 1){?>			
+			<option value="/admin/index">Admin</option>
+<?php }?>			
+		</select>
+	</li>
+<?php }?>	
+</ul>

@@ -1,0 +1,46 @@
+<div id="boxes">
+	
+	<div id="dialog" class="window">
+		<!-- Botão para fechar a janela tem class="close" -->
+		<a href="#" class="close">Fechar [X]</a>
+		<!-- Area para conteudo dinamico da div modal -->
+		<div id='modalContent' style="margin: 0px !important;"></div>
+	</div>
+
+	<!-- Não remova o div#mask, pois ele é necessário para preencher toda a janela -->
+	<div id="mask"></div>
+</div>
+
+<form name="frmComponent" method="post" id="frmComponent" action="<?php echo $this->baseUrl('prime/component/save');?>">
+		
+        <div class="registers">
+
+            <ul class="pad10 listnone">
+                <li>
+                    <div class="fontBold width150 floatleft">Título:</div>
+                    <input type="text" id="title" name="title" size="36" maxlength="100" class="textborder width150 floatleft">
+                </li>
+                <li>
+                    <div class="fontBold width150 floatleft">Host: </div>
+                    <?php echo $this->Server();?>
+                </li>
+                <li>
+                    <a href="#dialog" name="server" id="server">Clique aqui</a> para adicionar um servidor.
+                </li>
+                <li>
+                    <input type="submit" class="btSubRegister" name="bt_SaveComponent" id="bt_SaveComponent" value="Avançar">
+                </li>
+            </ul>
+        </div>
+        
+        <div class="borderVert"></div>
+        
+        <?php if($this->comp){?>
+        <div class="box width300">
+            <div class="box-title">Selecione um componente pai*</div>
+            <div id="box-content">
+                <?php echo $this->comp;?>
+            </div>
+        </div>
+        <?php }?>
+</form>

@@ -1,0 +1,105 @@
+
+.btMenu{
+    background-color: #004B97;
+    color: #FFFFFF;
+    border: 0px;
+}
+
+.box{
+    float:left; 
+    margin: 10px;
+}
+
+.box-title{
+    background-color: #7D5E37;
+    color: #F0E7DC;
+    text-align: center;
+    height: 15px;
+    border: 1px solid #7D5E37;
+}
+
+#box-content{
+    background-color: #FFFFFF;
+    padding: 5px;
+    color: #5D441C;
+    height: 300px;
+}
+
+.border-box{
+    border: 1px solid #7D5E37;
+}
+
+.borderVert{
+    border: 1px solid #7D5E37;
+    height: 350px;
+    width: 2px;
+    float: left;
+    margin: 10px;
+}
+
+.registers{
+    float:left;
+    margin-top: 10px;
+    width: 350px;
+}
+
+.textborder{
+    border: 1px solid #7D5E37;
+}
+
+.fontBold{
+    font-weight: bold;    
+}
+
+.boxserver{
+    margin: 0px auto;
+    border: 1px solid #7D5E37;
+    width: 150px;
+}
+
+.pad5{
+    padding: 5px;
+}
+
+ul.pad10 li{
+    padding: 10px;
+}
+
+ul.listnone{
+    list-style: none;
+}
+
+.btSubRegister{
+    background: url(/image/button_bg_orange_33364.gif) repeat scroll;
+    color: white;
+    border: 1px solid #C0530F;
+    padding: 10px;  
+}
+
+.btSubRegister:hover{
+    background: url(/image/button_bg_orange_hover_24860.gif) repeat scroll;
+}
+
+.error{
+    background-color: #EEB4B4;
+    color: #7D5E37;
+    font-weight: bold;
+    padding: 10px;
+}
+
+.remove{
+    background: url(/image/remove.png)no-repeat;
+    padding-left: 10px;
+    margin-left: 5px;
+}
+
+.middle{
+    margin: 0px auto;
+}
+
+.checkboxTree li em{
+    background: url(/image/hover.png) no-repeat;
+    width: 200px;
+    height: 75px;
+    padding: 5px;
+}

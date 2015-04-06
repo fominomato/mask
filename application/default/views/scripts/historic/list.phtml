@@ -1,0 +1,37 @@
+<?php if(is_array($this->data)){?>
+<table id="listagem">
+	<THEAD>
+		<tr>
+			<th>Usuário</th>
+			<th>Data</th>
+			<th>Horário</th>
+			<th>Cliente</th>
+			<th>Servidor</th>
+			<th>Componente</th>
+			<th>Ação</th>
+			<th>Logs</th>
+		</tr>
+	</THEAD>	
+	<tbody>
+<?php foreach ($this->data as $log): ?>
+		<tr>
+			<td><?=$log->user;?></td>
+			<td><?=date("d/m/y" , strtotime($log->dtinsert))?></td>
+			<td><?=date("H:i" , strtotime($log->dtinsert));?></td>
+			<td><?=$log->client;?></td>
+			<td><?=$log->server;?></td>
+			<td><?=$log->component;?></td>
+			<td><?=$log->action;?></td>
+			<td>
+				<form action="<?php echo $this->baseUrl("/default/exec/download");?>" method="post" name="frmDownload">
+					<input type="hidden" value="<?=$log->value;?>" name="url" id="url">
+					<input type="submit" value="+" id="btViewLog">
+				</form>			
+			</td>
+		</tr>
+<?php endforeach; ?>
+	</tbody>		
+</table>
+<?php }else{?>
+	<pre>Não encontramos dados para a pesquisa!</pre> 
+<?php }?>

@@ -1,0 +1,10 @@
+<?php $components = $this->Returncomp($this->server_id); ?>
+
+	<table class="tableHealth">
+		<?php foreach($components as $component){?>
+			<tr>
+				<td class="tbAzul" style="font-weight: bold;"><?=strtoupper($component->getName());?></td>
+				<td class="tbAzul"><?=$this->Executerow($component);?></td>
+			</tr>
+		<?php }?>
+	</table>

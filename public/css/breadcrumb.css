@@ -1,0 +1,64 @@
+/*The "universal rule". Set's border, padding and margin to 0 for all values. NB! If you aren't used to using this kind of code in your CSS you may experience some changes in your overall design. If so, set padding, margin and border in your breadCrumb CSS instead*/
+
+#breadCrumb {
+	margin:0px;
+	height: 22px; /* This is the height we wan't on our breadcrumb */
+	padding: 4px 0 0 8px;
+    /**
+	background: #15428B; 
+	color: #f5f5f5;
+**/
+    font-size: 80%;
+}
+#breadCrumb li {
+	float: left;
+	display: inline;
+	margin-right: 4px;
+}
+#breadCrumb a {
+	color: #000000; /* Our breadcrumb links are going to be white */
+	font-weight: bold; /* And bold */
+	background: url(/image/breadcrumb.gif) top right no-repeat;
+	padding-right: 11px; /* We need to add some padding to the right of the link. This space is where the background image is going to be shown. */
+	text-decoration: none;
+}
+#breadCrumb a:hover {
+	color: #000000;
+	background:url(/image/breadcrumb.gif) bottom right no-repeat;
+}
+
+
+.tabs{
+    background-color: #F0E7DC;
+    border-top: 1px solid #8E7C61;
+    height: 24px;
+    margin-bottom: 5px;
+    padding: 0 5px;
+}
+
+ul.listinline li{
+    float: left;
+    display: inline; 
+}
+
+ul.listinline a{
+    color: #323232;
+    display: block;
+    float: left;
+    text-decoration: none;
+    padding: 0 18px;
+}
+
+ul.listinline a:hover{
+    text-decoration: underline;
+}
+
+.listinline li.active a {
+    background-color: #D16209;
+    background-image: url("/image/member-interaction-tab-active-background_2184.jpg");
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    color: #FFFFFF;
+    font-weight: bold;
+    padding-bottom: 12px;
+}

@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+        <title>HBT - Huge Baby Tool</title>
+        
+        <?php $this->headScript()->prependFile('/js/gerais.js'); ?> 
+        <?php $this->headScript()->prependFile('/js/default.js'); ?> 
+        <?php $this->headScript()->prependFile('/js/component.js'); ?> 
+        <?php $this->headScript()->prependFile('/js/jquery-framedialog.js'); ?> 
+        <?php $this->headScript()->prependFile('/js/jquery-ui.min.js'); ?> 
+        <?php $this->headScript()->prependFile('/js/jquery.checkboxtree.js'); ?> 
+        <?php $this->headScript()->prependFile('/js/jquery.js'); ?> 
+
+        <?php $this->headLink()->appendStylesheet('/css/jquery.checkboxtree.css') ?>
+        <?php $this->headLink()->appendStylesheet('/css/breadcrumb.css') ?>
+        <?php $this->headLink()->appendStylesheet('/css/listagem.css') ?>
+        <?php $this->headLink()->appendStylesheet('/css/menu_style.css') ?>
+        <?php $this->headLink()->appendStylesheet('/css/modal.css') ?>
+        <?php $this->headLink()->appendStylesheet('/css/forms.css') ?>
+        <?php $this->headLink()->appendStylesheet('/css/main.css') ?>
+        <?php $this->headLink()->appendStylesheet('/css/jquery-ui.css') ?>        
+        
+        <?php echo $this->headScript() ?>   
+        <?php echo $this->headLink() ?>  
+    </head>
+<body>
+
+    <div id="pre-header-wrapper">
+        <div class="block" id="pre-header">
+            <ul class="unit last" id="pre-navigation">
+                <li><b><a href="/auth/logout">Sair</a></b></li>
+            </ul>
+          </div>
+    </div>
+    
+    <div id="header-wrapper">
+        <div id="header" class="block">
+            <div class="logo">      
+                <a href="/" target="_top"> 
+                    <img src="/image/logo.png" width="45" height="45" border="0">
+                </a>
+            </div>
+            <?php echo $this->render("menu.phtml");?>
+        </div>       
+    </div>
+    
+    <div class="header-menu-nav block">
+        <?php echo $this->render("client.phtml");?>
+    </div>
+    
+    <br style="clear:both" />
+    
+    <div id="content" class="container block">
+        <?php echo $this->layout()->content?>
+    </div>
+    
+    <div id="footer-wrapper">
+        <div class="footer block">
+            <div class="unit span-6 first" id="copyright">&copy; HBT&trade; 2011. Todos os direitos reservados.</div>
+            <div class="unit span-10 last" id="map">
+                <a href="/" target="_top"> Sobre nós</a>  |
+                <a href="/" target="_top"> Ajuda</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

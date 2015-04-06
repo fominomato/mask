@@ -1,0 +1,14 @@
+<h2>Login</h2>
+
+<a href="/auth/register">Cadastre-se aqui!</a>
+<br style="clear:both;" />
+<?php if(sizeof($this->messages) > 0 ) {?>
+	<div style="color: #f00;">
+		<?=$this->messages[0]?>
+		<?=$this->msg?>
+	</div>
+<?php }?>
+
+<?php echo $this->form; ?>
+<br style="clear:both;" />
+<a href="/auth/remember">Esqueceu a senha?</a>

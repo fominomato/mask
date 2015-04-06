@@ -1,0 +1,23 @@
+<fieldset>
+	<legend>Pesquisa e Execução</legend>
+	
+	<?php 
+	if($this->client_name){
+		echo "Cliente: <b>{$this->client_name}</b>";
+		echo "<br style='clear:both;' />"	;
+	}
+	?>
+	
+	<div id="dvAlert">
+		<?php echo $this->ErrorMsg;?>
+	</div>
+	
+	<?php if($this->Application(array("client_id"=>$this->client_id)) != false){?>
+		<!-- Renderizar parcialmente (nesta página) o formulário -->
+		<?php echo $this->partial('/find/form.phtml', array('data' => $this->select, 'client_id' => $this->client_id, 'check' => $this->check));?>
+	<?php }else{?>
+			<div id='dvAlert'>Alerta! Avise o administrador deste cliente sobre a falta de aplicação.</div>	
+	<?php }?>
+</fieldset>
+
+<div id="dvResponse"></div>

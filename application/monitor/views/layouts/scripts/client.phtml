@@ -1,0 +1,20 @@
+<?php
+	$user				= Zend_Auth::getInstance()->getIdentity()->getId();
+	$profile			= Zend_Auth::getInstance()->getIdentity()->getRoleId();    	
+	$clients= Zend_Auth::getInstance()->getIdentity()->getClients($profile, $user);
+?>
+<div id="nav">
+
+	<ul class="lstClie">
+	<?php foreach($clients as $client){?>
+		<li>
+			<form action="<?php echo $this->baseUrl("/monitor/index");?>" name="frmClients" method="post" style="margin-bottom: -2px;">
+				<input type="hidden" name="client_id" id="client_id<?php echo $client->getId();?>" value="<?php echo $client->getId();?>">
+				<input type="hidden" name="name" id="name<?php echo $client->getId();?>" value="<?php echo $client->getName();?>">
+				<input type="submit"class="btAzul" style="width: 200px;" name="btSubClie" value="<?php echo ucfirst(strtolower($client->getName()));?>">
+			</form>
+		</li>
+	<?php }?>
+		</ul>
+
+</div>

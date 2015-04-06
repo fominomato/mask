@@ -1,0 +1,21 @@
+
+<form action="<?php echo $this->baseUrl('/default/index');?>" name='frmEscClie' method="post">
+<fieldset>
+	<legend>Escolha um Cliente para navegar</legend>
+	<ul style="list-style:none;">
+	<?php foreach($this->clients as $client):?>
+		<li>
+		<?php 
+		if($this->client_id == $client->getId())
+			$selected = 'checked="true"';
+		?>
+			<input style="border:0px;" type="radio" name="client_id" id="client_id" <?php echo $selected;?> value="<?php echo $client->getId().":".$client->getName();?>">
+			<?php echo $client->getName();?>
+			<br style="clear:both;">
+		</li>
+		<?php unset($selected);?>
+	<?php endforeach;?>
+	</ul>
+	<input style="float:right; margin-right: 300px;" type="submit" name="btChgClie" id="btChgClie" value="Enviar">
+</fieldset>	
+</form>

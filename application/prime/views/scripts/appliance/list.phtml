@@ -1,0 +1,47 @@
+<?php $stbordertop = " style='border-top: 1px solid #BCD2EE;' ";?>
+
+<table id="listagem" style="width: 100%;">
+	<thead>
+		<tr <?=$stbordertop?>>
+			<th></th>
+			<th>Aplicação</th>
+			<th>Produto</th>
+			<th>Componente</th>
+			<th>Servidor</th>
+			<th>Ambiente</th>
+			<th>Ações</th>
+		</tr>
+	</thead>
+	<tbody>	
+<?php $a  = 0;?>
+<?php foreach($this->application as $iten):?>
+		<tr>
+			<td>
+				<a id="ln<?=$a?>" class="abre" onClick="$('#tb<?=$a;?>').show(); $('#ln<?=$a;?>').hide(); $('#fc<?=$a;?>').show();">&nbsp;</a>
+				<a id="fc<?=$a?>" class="fecha" style="display:none;" onClick="$('#tb<?=$a;?>').hide(); $('#ln<?=$a;?>').show(); $('#fc<?=$a;?>').hide();">&nbsp;</a>
+			</td>
+			<td nowrap><?php echo $iten->getApplication()->getName();?></td>
+			<td nowrap><?php echo $iten->getComponent()->getProduct()->getName();?></td>
+			<td nowrap><?php echo $iten->getComponent()->getName();?></td>
+			<td nowrap><?php echo $iten->getComponent()->getServer()->getHostname();?></td>
+			<td nowrap><?php echo $iten->getAmbient()->getName();?></td>
+			<td>
+				<a class="btAzul" style="border: 1px solid #AABCFE !important;" href='#' onClick='this.blur();lnRemoveApplication(<?=$iten->getAmbient()->getId().','.$iten->getApplication()->getId().','.$iten->getComponent()->getId();?>);'>
+					<span>Remover</span>
+				</a>
+			</td>
+		</tr>
+	<?php 
+		$subs = $this->Listappcom(array("component_component_id" => $iten->getComponent()->getId(), "ambient_id" => $iten->getAmbient()->getId()));
+	?>
+		<tr>
+			<td colspan="7" style="height:0px; border: 0px;">
+			<?php if($subs){ ?>
+				<?php echo $this->partial("/appliance/sub.phtml", array("subs"=>$subs, "a"=>$a)); ?>
+				<?php $a++;?>
+			<?php }	?>
+			</td>
+		</tr>
+<?php endforeach;?>
+	</tbody>
+</table>

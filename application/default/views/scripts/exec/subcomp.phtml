@@ -1,0 +1,45 @@
+<?php
+$subs = $this->Subs($this->subcomp);
+
+if(is_array($subs)){
+	$a = 0;
+?>
+
+<table class="subs">
+	<thead>
+		<tr>
+			<th colspan='4'>Lista de subcomponentes</th>
+		</tr>
+		<tr>
+			<th width="100px">Nome</th>
+			<th width="100px">Servidor</th>
+			<th width="100px">Produto</th>
+			<th width="300px">Fluxo</th>
+		</tr>
+	</thead>
+	<tbody>
+<?php foreach($subs as $iten): ?>
+		<tr>
+			<td>
+				<a href="#" onClick="acessExec2(<?php echo $this->appCom->getApplication()->getId().','.$iten->getId().','.$this->appCom->getAmbient()->getId();?>);">
+					<?=$iten->getName();?>
+				</a>
+			</td>
+			<td><?=$iten->getServer()->getHostname();?></td>
+			<td><?=$iten->getProduct()->getName();?></td>
+			<td>
+				<?=$this->Boxflow($a, $iten->getProduct()->getId());?>
+				<input class="btAzul" style="float:right; padding: 2px !important;" type="button" onClick="return iframeRes(0, <?=$iten->getId();?>, <?=$a?>);" value="Executar">
+				<br style="clear:both;" />
+			</td>
+
+		</tr>
+	<?php $a++;?>
+<?php endforeach;?>
+	</tbody>
+</table>
+<?php 
+}
+//else
+//	echo "<div class='inform'>Não existe sub componentes associado!</div>";
+?>

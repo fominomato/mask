@@ -1,0 +1,19 @@
+<table id="listagem">
+	<thead>
+		<tr>
+			<th>Nome</th>
+			<th>Site</th>
+			<th colspan=2></th>
+		</tr>
+	</thead>
+	<tbody>	
+<?php foreach($this->client as $iten):?>
+		<tr>
+			<td><?php echo $iten->getName();?></td>
+			<td><?php echo $iten->getSite();?></td>
+			<td><a href='#' onClick='lnEditClient(<?php echo $iten->getId();?>);' class="lnEditClient">Atualizar</a></td>
+			<td><a href='#' onClick='lnRemoveClient(<?php echo $iten->getId();?>);' class="lnRemoveClient">Remover</a></td>
+		</tr>
+<?php endforeach;?>
+	</tbody>
+</table>

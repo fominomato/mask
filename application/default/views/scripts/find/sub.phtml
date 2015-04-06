@@ -1,0 +1,22 @@
+<table id="tb<?=$this->a?>" class="listagem" style="display:none; border: 1px solid #9BAFF1;">
+	<thead>
+		<tr>
+			<th>Componente</th>
+			<th>Produto</th>
+			<th>Servidor</th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+	<?php foreach($this->subs as $sub){ ?>
+		<tr>
+			<td><?php echo strtoupper($sub->component);?></td>
+			<td><?php echo $sub->product;?></td>
+			<td><?php echo $sub->hostname;?></td>
+			<td>
+				<input class="btAzul" type="button" name="bt_Detalhe" onClick="acessExec(<?php echo $sub->application_id.','.$sub->component_id.','.$sub->ambient_id;?>);" value="Acessar">
+			</td>
+		</tr>
+	<?php }?>
+	</tbody>
+</table>

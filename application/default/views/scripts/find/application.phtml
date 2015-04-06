@@ -1,0 +1,6 @@
+<?php
+	if($this->Application(array("client_id"=>$this->client_id)) != false)
+		echo $this->Application(array("client_id"=>$this->client_id));
+	else
+		echo "Alerta! Avise o administrador deste cliente sobre a falta de aplicação.";
+?>

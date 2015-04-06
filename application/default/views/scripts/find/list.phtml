@@ -1,0 +1,16 @@
+<table>
+	<thead>
+		<tr>
+			<th>Nome</th>
+			<th>Site</th>
+		</tr>
+	</thead>
+	<tbody>	
+<?php foreach($this->client as $iten):?>
+		<tr>
+			<td><?php echo $this->iten->getName();?></td>
+			<td><?php echo $this->iten->getSite();?></td>
+		</tr>
+<?php endforeach;?>
+	</tbody>
+</table>

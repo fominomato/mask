@@ -1,0 +1,20 @@
+<?php $this->headScript()->prependFile('/js/component.js'); ?> 
+<?php $this->headScript()->prependFile('/js/jquery-ui.min.js'); ?> 
+<?php $this->headScript()->prependFile('/js/jquery.js'); ?>
+<?php echo $this->headScript(); ?>   
+		
+<!-- BreadCrumb -->
+<?php $session = new Zend_Session_Namespace('client');?>
+<?php $this->breadcrumb("aplicacao", $session->client_name);?>
+
+<fieldset>
+	<legend>Edição Aplicação</legend>
+	<?php if($this->msg){?>
+		<div id="dvAlert">
+			<?php echo $this->msg;?>
+		</div>
+	<?php }?>
+	
+	<!-- Renderizar parcialmente (nesta página) o formulário -->
+	<?php echo $this->partial('/appliance/form.phtml', array("data" => $this->data));?>
+</fieldset>

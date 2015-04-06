@@ -1,0 +1,65 @@
+/** Css para as grids **/
+
+.grid-header{
+	background:url('/image/top-bottom.gif') repeat-x;
+	overflow: hidden;
+	font: bold 11px;
+	padding: 4px;
+	color: #15428B;
+}
+
+.grid-panel{
+	background: #99BBE8;
+	border: 1px solid #15428B;
+}
+
+.grid-body{
+	padding: 4px;
+}
+
+.grid-body-text{
+	background: #FFFFFF;
+	width: 590px;	
+}
+
+.grid-tab{
+	background-color: #CEDFF5;
+	margin-left: 5px;
+	border: 1px solid #8DB2E3;
+	height: 21px;
+	padding-top: 4px;
+	width: 595px;
+}
+
+
+ul.grid-tab-list {
+	background: url('/image/tab-strip-bg.gif');
+	display: block;
+	margin:0;
+	padding-left: 2px;
+	list-style:none outside none;
+}
+
+ul.grid-tab-list li {
+	float:left;
+	margin-left:2px;
+}
+
+.grid-tab-list a{
+	outline:medium none;
+	text-decoration:none !important;
+	font-weight: bold;
+	color: #15428B;
+	
+}
+
+.grid-tab-inner{
+	/**
+		background: url('/image/tabs-sprite.gif') repeat-x scroll 0 -201px transparent;
+	**/
+	padding: 5px;
+}
+
+.grid-tab-list a:hover{
+	color: #CCCCC;
+}

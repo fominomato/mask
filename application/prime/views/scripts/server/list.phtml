@@ -1,0 +1,31 @@
+<?php if(count($this->server) > 0 && $this->server){ ?>
+	<table id="listagem" >
+		<thead>
+			<tr>	
+				<th>Host Name</th>
+				<th>IP : Porta</th>
+				<th colspan="2"></th>
+			</tr>
+		</thead>
+		<tbody>
+		<?php foreach($this->server as $server):?>
+			<tr>
+				<td><input type="text" class="inptServer" maxlength="100" size="10" name="hostname" id="hostname<?=$server->getId();?>" value="<?=$server->getHostname();?>"></td>
+				<td>
+				<input class="inptServer" type="text" maxlength="20" size="10" name="address" id="address<?=$server->getId();?>" value="<?=$server->getAddress();?>"><input class="inptServer" type="text" size="4" maxlength="6" name="port" id="port<?=$server->getId();?>" value="<?=$server->getPort();?>">
+				</td>
+				<td>
+			<form action="#" name="frmUpdtSrv" onSubmit="return updateServer(<?=$server->getId()?>);">
+				<input class="inptServer" type="submit" name="btUpdtSrv" value="Atualizar">
+			</form>
+				</td>
+				<td>
+					<a href="#" name="btRmvServer" onClick="RmvServer(<?=$server->getId();?>)" title="Remover" >
+					X
+					</a>
+				</td>
+			</tr>
+		<?php endforeach;?>
+		</tbody>
+	</table>
+<?php }?>

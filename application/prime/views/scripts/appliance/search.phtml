@@ -1,0 +1,22 @@
+<!-- BreadCrumb -->
+<?php if(!$this->nobread){?>
+	<?php $this->Breadcrumb("aplicacao", $this->client_name);?>
+<?php }?>
+
+	
+<form action="<?php echo $this->baseUrl('/prime/appliance/index')?>" id="frmPesqApp" name="frmPesqApp" method="post">
+	<fieldset>
+		<legend>Pesquisa aplicações</legend>
+			<label for="Application" style="width:100px;">Aplicação: </label>
+			<input type="text" name="title" id="title">
+			
+			<label for="Component" style="width:100px;">Componente: </label>	
+			<input type="text" id="component" name="component">
+			<br style='clear:both;' />
+			
+			<input type="submit" name="btPsqApp" id="btPsqApp" class="btAzul" style="float:right;" value="Pesquisar">
+	
+	</fieldset>
+</form>
+
+<br style="clear:both;" />

@@ -1,0 +1,61 @@
+<div id="boxes">
+	
+	<div id="dialog" class="window">
+		<!-- Botão para fechar a janela tem class="close" -->
+		<a href="#" class="close">Fechar [X]</a>
+		<!-- Area para conteudo dinamico da div modal -->
+		<div id='modalContent' style="margin: 0px !important;"></div>
+	</div>
+
+	<!-- Não remova o div#mask, pois ele é necessário para preencher toda a janela -->
+	<div id="mask"></div>
+</div>
+
+
+<table id="listagem" style="width: 590px !important; border-top: 1px solid #B9C9FE;">
+	<thead>
+		<tr>
+			<th></th>
+			<th>Componente</th>
+			<th>Servidor</th>
+			<th>Produto</th>
+			<th>Argumentos</th>
+			<th>Ver Hierarquia</th>
+		</tr>
+	</thead>
+	<tbody>
+	<?php $a = 0;?>
+	<?php foreach($this->list as $comp):?>
+	
+	<?php $link = "<a href='#assoc' onClick='assocProd({$comp->getId()})'>Associar Produto</a>";?>
+	<?php $subs = $this->Listcomp(array("component_component_id" => $comp->getId()));?>
+		<tr>
+			<td>
+			<?php if($subs){?>
+				<a id="ln<?=$comp->getId()?>" class="abre" onClick="$('#tb<?=$comp->getId();?>').show(); $('#ln<?=$comp->getId();?>').hide(); $('#fc<?=$comp->getId();?>').show();">&nbsp;</a>
+				<a id="fc<?=$comp->getId()?>" class="fecha" style="display:none;" onClick="$('#tb<?=$comp->getId();?>').hide(); $('#ln<?=$comp->getId();?>').show(); $('#fc<?=$comp->getId();?>').hide();">&nbsp;</a>
+			<?php }?>
+			</td>
+			<td><?php echo $comp->getName();?></td>
+			<td><?php echo $comp->getServer()->getHostname();?></td>
+			<td><?php echo ($comp->getProduct()->getName())?$comp->getProduct()->getName():$link;?></td>
+			<td>
+			<?php if(($comp->getProduct()->getName()) && $this->ListCommands($comp->getProduct()->getId())){?>
+				<a href="#args" onClick="acessArgs(<?php echo $comp->getId().",".$comp->getProduct()->getId();?>)">
+					Alterar
+				</a>
+			<?php }else{?>--<?php }?>
+			</td>
+			<td><a href="#dialog" name="hierarquia" id="<?php echo $comp->getId();?>">Hierarquia</a></td>
+		</tr>
+		<tr>
+			<td colspan="6" style="border: 0px; height: 0px;">	
+				<?php if($subs){ ?>
+					<?php echo $this->partial("/component/sub.phtml", array("subs"=>$subs, "a"=>$comp->getId())); ?>
+				<?php } ?>
+			</td>
+		</tr>
+	<?php $a++;?>
+	<?php endforeach;?>
+	</tbody>
+</table>

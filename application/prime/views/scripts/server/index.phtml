@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>Huge Baby Prime</title>
+		 
+		<?php $this->headScript()->prependFile('/js/gerais.js'); ?> 
+		<?php $this->headScript()->prependFile('/js/default.js'); ?> 
+		<?php $this->headScript()->prependFile('/js/component.js'); ?> 
+		<?php $this->headScript()->prependFile('/js/jquery-ui.min.js'); ?> 
+		<?php $this->headScript()->prependFile('/js/jquery.js'); ?> 
+
+		<?php $this->headLink()->appendStylesheet('/css/grid.css') ?>
+		<?php $this->headLink()->appendStylesheet('/css/listagem.css') ?>
+		<?php $this->headLink()->appendStylesheet('/css/forms.css') ?>
+		<?php $this->headLink()->appendStylesheet('/css/gerais.css') ?>
+		<?php $this->headLink()->appendStylesheet('/css/jquery-ui.css') ?>		
+		
+		<?php echo $this->headScript() ?>   
+		<?php echo $this->headLink() ?>  
+	</head>
+	<body>
+		<fieldset>
+			<legend>Cadastrar Servidor</legend>
+			
+			<?php if($this->msg){?>
+				<div id="dvAlert">
+					<?php echo $this->msg;?>
+				</div>
+			<?php }?>
+			
+			<?php echo $this->partial('/server/form.phtml', array("data" => $this->data));?>
+		</fieldset>
+		
+		<?php echo $this->partial('/server/list.phtml', array("server" => $this->server));?>
+	</body>
+</html>

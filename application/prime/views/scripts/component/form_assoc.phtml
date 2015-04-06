@@ -1,0 +1,35 @@
+<div id="boxes">
+	<div id="dialog" class="window">
+		<!-- Botão para fechar a janela tem class="close" -->
+		<a href="#" class="close">Fechar [X]</a>
+		<!-- Area para conteudo dinamico da div modal -->
+		<div id='modalContent'></div>
+	</div>
+
+	<!-- Não remova o div#mask, pois ele é necessário para preencher toda a janela -->
+	<div id="mask"></div>
+</div>
+
+<form name="frmComponent" method="post" id="frmComponent" action="/prime/component/update" onSubmit="return validComp();">
+	<input type="hidden" name="component_id" id="component_id"	value="<?php echo $this->component->getId();?>">
+		
+		<div class="width150 fontBold floatleft">Componente: </div><div class="floatleft"><?php echo $this->component->getName();?></div>
+        <br />
+
+		<div class="width150 fontBold floatleft">Servidor: </div><div class="floatleft"><?php echo $this->component->getServer()->getHostname().' '.$this->component->getServer()->getAddress();?></div>
+        <br />
+
+		<div class="width150 fontBold floatleft">Selecione um produto: </div>
+		<div class="floatleft"><?php echo $this->prod;?></div>
+				
+		<br style="clear:both;" />
+		<input type="submit" class="btSubRegister middle" name="bt_SaveComponent" id="bt_SaveComponent" value="Avançar">
+</form>
+
+<!--	
+<br style="clear:both;" />
+<br style="clear:both;" />
+<form action="<?php echo $this->baseUrl('/prime/component/search');?>" name="finComp" method="post">
+	<input type="submit" class="btAzul" name="btFrmRefresh" value="Finalizar" style="float:right;">
+</form>	
+-->

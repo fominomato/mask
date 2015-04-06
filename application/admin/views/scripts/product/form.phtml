@@ -1,0 +1,17 @@
+<form action="/admin/product/save" method="post" name="frmProductSave" id="frmProductSave">
+
+	<label for="title">Digite um título</label>
+	<input type="text" name="title" id="title" value="">
+	<br style="clear:both;" />
+	<br style="clear:both;" />
+	
+	<label for="product_id">Escolha um Produto - Raíz</label>
+	<?php echo $this->partial('/product/list.phtml', array("check" => $this->check));?>
+
+	<br style="clear:both;" />
+	<br style="clear:both;" />
+
+	<input type="reset" value="Reset!" class="btAzul">
+	<input type="submit" id="btAddProduct" name="btAddProduct" class="btAzul">
+
+</form>

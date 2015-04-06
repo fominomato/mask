@@ -1,0 +1,257 @@
+/*
+*   Arquivo de estilo para template da página
+*/
+
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, p, blockquote, th, td {
+    margin: 0;
+    padding: 0;
+    font-family: Tahoma,Verdana,Arial,sans-serif;
+}
+
+body, ul, ol, dl, h1, h2, h3, h4, h5, h6, td, th, caption, pre, p, blockquote, input, textarea {
+    color: #323232;
+    font-family: Tahoma,Verdana,Arial,sans-serif;
+    font-size: 12px;
+    font-weight: normal;
+    line-height: 18px;
+}
+
+#pre-header-wrapper{
+    background: transparent url("../image/back-header-top.png") repeat-x;
+    height: 30px;
+    padding: 2px;
+}
+
+#pre-header{
+    padding-top: 4px;
+}
+    
+#pre-header ul {
+    list-style-type: none;
+    display: inline;
+    margin: 0;
+    padding: 0;
+    text-align: right;
+}
+
+#pre-header li{
+    list-style: none;
+    display:inline;
+    font-size: 80%;
+}
+
+.menu-nav a{
+    color: #FFFFFF;
+    text-decoration:none;
+} 
+
+.menu-nav a:hover{
+    text-decoration: underline;
+}
+
+#pre-navigation {
+    float: right;
+    height: 26px;
+}
+
+#pre-navigation a{
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+#pre-navigation a:hover{
+    text-decoration: underline;
+}
+
+.last {
+    margin-right: 0;
+}
+
+ol, ul {
+    list-style: none outside none;
+}
+
+ul, ol {
+    list-style-position: outside;
+    list-style-type: disc;
+    padding-left: 16px;
+}
+
+.fontwhite{
+    color: white;
+    font-size: 80%;
+}
+
+.floatright{
+    float: right;
+}
+
+.floatleft{
+    float: left;
+}
+
+.listTopMenu{
+    height: 100%;
+    margin: 5px;
+}
+
+#header-wrapper{
+    background: transparent url("../image/back-header.png") repeat-x;
+    height: 60px;
+    overflow:hidden;
+}
+
+#header div.logo {
+    float: left;
+    padding-bottom: 0px;
+    padding-top: 7px;
+    width: 350px;
+}
+
+.logo a{
+    margin-left: 10px;
+}
+
+.block{
+    margin: 0px auto;
+    position: relative;
+    width: 950px;
+}
+
+ul.header-menu{
+    margin: 0px;
+    padding: 0px;
+}
+
+ul.header-menu li{
+    list-style: none;
+    display:inline;
+}
+
+.btMenuHeader{
+    background: url(../image/back-header-bt.png) transparent; 
+    display: block;
+    border: 0px;
+    color: #FFFFFF;
+    text-decoration: none;
+    float: left;                                    
+    font-size: 14px;
+    margin-right: 10px;
+    margin-top: 17px;
+    padding: 14px 5px;
+    text-align: center;
+    width: 175px;
+}
+
+.btMenuHeader:hover{
+    text-decoration: underline;
+
+    background: url(../image/back-header-bt-hover.png) transparent; 
+}
+
+.width100percent{
+    width: 100%;
+}
+
+.width90percent{
+    width: 90%;
+}
+
+.width200{
+    width: 200px;    
+}
+
+.width300{
+    width: 300px;    
+}
+
+.width400{
+    width: 400px;    
+}
+
+.width600{
+    width: 600px;    
+}
+
+.width150{
+    width: 150px;
+}
+
+div.header-menu-nav {
+    background: url(../image/back-header-nav.png) transparent;
+    height: 40px;    
+}
+
+div.menu-nav{
+    padding-top: 10px;
+    margin-left: 20px;
+    height: 30px;
+    float:left;
+}
+
+div.menu-nav a{
+    color: white;
+    font-size: 80%;
+}
+
+.container{
+    height: 700px;
+    overflow: hidden;
+}
+
+#footer-wrapper{
+    background: #000033;
+}
+
+.footer{
+    color: white;
+    font-size: 80%;
+    height: 50px;
+    padding: 20px;
+}
+
+.span-6 {
+    width: 350px;
+}
+
+.first {
+    margin-left: 0;
+}
+
+.unit {
+    float: left;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+#map {
+    text-align: right;
+}
+
+#map a {
+    color: #FFFFFF;
+}
+
+h3 {
+    font-size: 16px;
+    line-height: 18px;
+    padding-bottom: 9px;
+    padding-top: 9px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: #163E6A;
+    font-weight: normal;
+}
+
+.textleft{
+    text-align: left;
+}
+
+.textcenter{
+    text-align: center;
+}
+
+.textright{
+    text-align: right;
+}

@@ -1,0 +1,32 @@
+<?php try{?>
+<div class="monit">
+	
+	<fieldset>
+		
+		<legend>Teste monitoração</legend>
+		
+		<form action="#enviadados" method="post" name="frmMonit" onSubmit="return iframeMonit();">
+		
+			<label for="server_id">Servidores</label>
+			<br style="clear:both;" />
+			<?php echo $this->Server();?>
+			<br style="clear:both;" />
+			
+			<label for="ambient_id">Ambiente</label>
+			<br style="clear:both;" />
+			<?php echo $this->Ambient();?>
+			<br style="clear:both;" />
+	
+			<input type="submit" class="btAzul" name="btMonit">
+		</form>
+		
+	</fieldset>
+
+	<div id="execCmd" class='exec'>
+	</div>
+</div>
+<?php 
+}catch(Exception $e){
+	echo $e->getMessage();
+	exit();
+}?>

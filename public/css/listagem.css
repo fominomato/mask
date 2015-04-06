@@ -1,0 +1,89 @@
+
+
+#listagem{
+	border-collapse:collapse;
+	font-size:12px;
+	margin-top:20px;
+	text-align:left;
+	width: 100% !important;
+	text-align:center;	
+}
+
+#listagem th{
+
+	/**
+	background:none repeat scroll 0 0 #B9C9FE;
+	border-top:4px solid #AABCFE;
+	**/
+	
+	border: 0px;
+	border-bottom:1px solid #B9C9FE;
+	color:#003399;	
+	font-size:13px;
+	font-weight:normal;
+	padding:8px;
+}
+
+#listagem tbody tr:hover td {
+	background:none repeat scroll 0 0 transparent;
+	color:#333399;
+}
+
+#listagem td {
+	color:#666699;
+	border: 0px;
+	border-bottom:1px solid #AABCFE;
+	height: 25px;
+	/**
+	background:none repeat scroll 0 0 #E8EDFF;
+	border-left:1px solid #AABCFE;
+	border-right:1px solid #AABCFE;
+	**/
+	padding:3px;
+}
+
+
+
+
+.listagem{
+	border-collapse:collapse;
+	font-size:12px;
+	margin-top:0px;
+	text-align:left;
+	width: 95%;
+	border: 0px;
+	/**
+	border-bottom:7px solid #9BAFF1;
+	**/
+	text-align:center;
+	float:right;
+}
+
+.listagem th{
+	/**
+	background:none repeat scroll 0 0 #B9C9FE;
+	border-top:4px solid #AABCFE;
+	**/
+	border: 0px !important;
+	color:#003399;
+	font-size:13px;
+	font-weight:normal;
+	padding:8px;
+}
+
+.listagem tbody tr:hover td {
+	background:none repeat scroll 0 0 transparent;
+	color:#333399;
+}
+
+.listagem td {
+	/**
+	background:none repeat scroll 0 0 #E8EDFF;
+	border-left:1px solid #AABCFE;
+	border-right:1px solid #AABCFE;
+	**/
+	color:#666699;
+	border: 0px;
+	border-bottom: 1px solid #AABCFE;
+	padding:3px;
+}

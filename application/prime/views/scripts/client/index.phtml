@@ -1,0 +1,16 @@
+<h3>Cadastrar Cliente</h3>
+
+<?php if($this->msg){?>
+	<div id="dvAlert">
+		<?php echo $this->msg;?>
+	</div>
+<?php }?>
+
+<div id="dvFormClient">
+<!-- Renderizar parcialmente (nesta página) o formulário -->
+<?php echo $this->partial('/client/formulario.phtml', array('data' => $this->select));?>
+</div>
+
+<?php if(count($this->client) > 0){?>
+	<?php echo $this->partial('/client/lista.phtml', array('client' => $this->client));?>
+<?php } ?>

@@ -1,0 +1,99 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<?php $this->headScript()->prependFile('/js/gerais.js'); ?> 
+		<?php $this->headScript()->prependFile('/js/component.js'); ?>
+		<?php $this->headScript()->prependFile('/js/default.js'); ?> 
+		<?php $this->headScript()->prependFile('/js/jquery-framedialog.js'); ?> 
+		<?php $this->headScript()->prependFile('/js/jquery-ui.min.js'); ?> 
+		<?php $this->headScript()->prependFile('/js/jquery.checkboxtree.js'); ?> 
+		<?php $this->headScript()->prependFile('/js/jquery.js'); ?> 
+
+		<?php $this->headLink()->appendStylesheet('/css/jquery.checkboxtree.css') ?>
+		<?php $this->headLink()->appendStylesheet('/css/breadcrumb.css') ?>
+		<?php $this->headLink()->appendStylesheet('/css/listagem.css') ?>
+		<?php $this->headLink()->appendStylesheet('/css/menu_style.css') ?>
+		<?php $this->headLink()->appendStylesheet('/css/forms.css') ?>
+		<?php $this->headLink()->appendStylesheet('/css/modal.css') ?>
+		<?php $this->headLink()->appendStylesheet('/css/gerais.css') ?>
+		<?php $this->headLink()->appendStylesheet('/css/jquery-ui.css') ?>		
+		
+		<?php echo $this->headScript(); ?>   
+		<?php echo $this->headLink(); ?>
+		<script>
+			$(document).ready(function() {	
+				$("#cmd").focus();	
+			});
+		</script>
+	</head>
+<body>
+		
+		<div id="father_flow" style="overflow:auto; height: 520px;">
+			<h3>Detalhes da execução do Processo</h3>
+		
+			<table width="100%">
+				<tr>
+					<td class="title">Cliente:</td>
+					<td><?php echo $this->appCom->getApplication()->getClient()->getName();?></td>
+			
+					<td class="title">Ambiente:</td>
+					<td><?php echo $this->appCom->getAmbient()->getName();?></td>
+				</tr>
+			
+				<tr>
+					<td class="title">Aplicação:</td>
+					<td><?php echo $this->appCom->getApplication()->getName();?></td>
+					
+					<td class="title">Produto/Comp.:</td>
+					<td>
+						<?php echo $this->appCom->getComponent()->getName();?> / 
+						<?php echo $this->appCom->getComponent()->getProduct()->getName();?>
+					</td>
+				</tr>
+			
+			<?php if($this->appCom->getComponent()->getServer()->getAddress()){?>
+				<tr>
+					<td class="title">Servidor:</td>
+					<td><?php echo $this->appCom->getComponent()->getServer()->getAddress();?></td>
+					
+					<td class="title">Port:</td>
+					<td><?php echo $this->appCom->getComponent()->getServer()->getPort();?></td>
+				</tr>
+		
+				<tr>
+					<td class="title">Fluxo:</td>
+					<td colspan="3"></td>
+				</tr>
+					<?php
+						$flows = $this->Flow($this->appCom->getComponent()->getProduct()->getId());
+						if(is_array($flows)){
+							$i=0;
+							foreach($flows as $flow):
+					?>
+					<tr>
+						<td></td>
+						<td>
+								<?php echo $flow->getCommand()->getFlowCommand()->getName();?> 
+								<?php //echo $flow->getCommand()->getCommand()->getName();?>
+						</td>
+						<td colspan="2">
+							<input class="btAzul inptCmd" style="float:none;" type="submit" id="btEnviar<?=$i?>" value="Executar" onClick="iframeRes(<?=$flow->getCommand()->getId();?>, <?=$this->appCom->getComponent()->getId();?>, <?=$i?>); $('#btEnviar<?=$i?>').hide();">
+						</td>
+					</tr>
+					<?php 
+								$i++;
+							endforeach;
+						}
+						else
+							echo "<tr><td colspan='4'><center><div class='empty'>Não existe fluxo para este produto!</div></center></td></tr>";
+					?>
+			<?php }//fim if não tem servidor associado?>
+			</table>
+		<?php
+			if($this->appCom->getComponent()->getId() > 0)
+				echo $this->partial('/exec/subcomp.phtml', array('subcomp'=>$this->appCom->getComponent()->getId(), 'appCom'=>$this->appCom, "teste"=>1));
+		?>
+		</div>
+	</body>
+</html>		

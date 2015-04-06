@@ -1,0 +1,91 @@
+ul.menu {
+	list-style-type:none;
+	width:auto;
+	position:relative;
+	display:block;
+	height:33px;
+	font-size: 12px !important;
+	background:url(/image/bg.png) repeat-x top left;
+	border:1px solid #000000;
+	margin:0;
+	padding:0;
+}
+
+ul.menu li {
+	display:block;
+	float:left;
+	margin:0;
+	padding:0;
+}
+
+ul.menu li a {
+	float:left;
+	color:#FFFFFF;
+	text-decoration:none;
+	height:24px;
+	padding:9px 15px 0;
+	font-weight:normal;
+}
+
+ul.menu li a:hover,.current {
+	color:#fff;
+	background:url(/image/bg.png) repeat-x top left;
+	text-decoration:none;
+}
+
+ul.menu .current a {
+color:#fff;
+font-weight:700;
+}
+
+
+/*ORANGE*/
+ul.menu.orange{
+	background-color:#FFFFFF;
+}
+ul.menu.orange li a:hover, .menu.orange li.current {
+	background-color:#000000;
+}
+
+
+#mnvertical {
+	width: 198px;
+	border-style: solid solid none solid;
+	border-color: #000000;
+	border-size: 1px;
+	border-width: 1px;
+
+}
+	
+#mnvertical li a {
+	height: 32px;
+  	voice-family: "\"}\""; 
+  	voice-family: inherit;
+  	height: 24px;
+	text-decoration: none;
+}	
+	
+#mnvertical li a:link, #mnvertical li a:visited {
+	color: #A79787;
+	display: block;
+	background: url(/image/menuseta.png);
+	padding: 8px 0 0 10px;
+}
+	
+#mnvertical li a:hover {
+	color: #FFFFFF;
+	background: url(/image/menuseta.png) 0 -32px;
+	padding: 8px 0 0 10px;
+}
+	
+#mnvertical li a:active {
+	color: #FFFFFF;
+	background: url(/image/menuseta.png) 0 -64px;
+	padding: 8px 0 0 10px;
+}
+
+#mnvertical ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
